@@ -1,0 +1,3 @@
+cd ..
+dart run
+pause
