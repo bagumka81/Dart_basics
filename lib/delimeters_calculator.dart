@@ -1,5 +1,6 @@
-///
-///
+/// Class contains static functions for calculation of:
+/// 1. greatest common divisor
+/// 2. least common multiple
 class DelimetersCalculator {
   ///Finds greatest common divisor for
   /// two numbers [num1] and [num2]
