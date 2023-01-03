@@ -1,6 +1,6 @@
 import 'dart:io';
 
-/// Class contains auxilary static functions for console application
+/// Class contains auxiliary static functions for console application
 class ConsoleUtils {
   ///Reads Integer number from console
   /// user sees [message]. Argument is optional
@@ -28,6 +28,11 @@ class ConsoleUtils {
       if (console_num == null) print("Sorry it's not a number");
     }
     return console_num.toInt();
+  }
+
+  /// Static method for adding text to line print
+  static void addToPrintLine(Object content){
+    stdout.write(content);
   }
 
 }

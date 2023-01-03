@@ -24,4 +24,36 @@ class DelimetersCalculator {
     }
     return (num1 ~/ gcd(num1, num2)) * num2;
   }
+
+  /// Static method for getting delimiters of [n]
+  /// [n] must be more than 1
+  static Iterable<int> getDelimiters(int n) sync* {
+    if (n < 2) {
+      throw ArgumentError("Argument must be more than 1");
+    }
+    for (int nextPrime in getNextPrime(n)) {
+      while (n % nextPrime == 0) {
+        yield nextPrime;
+        n = n ~/ nextPrime;
+      }
+      if (n == 1) break;
+    }
+  }
+
+  /// Static method for generating prime numbers from 2 to [n]
+  static Iterable<int> getNextPrime(int n) sync* {
+    int k = 2;
+    bool isPrime = true;
+    for (; k <= n; k++, isPrime = true) {
+      for (int i = 2; i < k; i++) {
+        if (k % i == 0) {
+          isPrime = false;
+          break;
+        }
+      }
+      if (isPrime) {
+        yield k;
+      }
+    }
+  }
 }
