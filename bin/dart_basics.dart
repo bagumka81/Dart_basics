@@ -1,11 +1,12 @@
 import 'package:dart_basics/delimeters_calculator.dart' as dc;
 import 'package:dart_basics/console_utils.dart' as console_utils;
+import 'package:dart_basics/dec_bin.dart' as dec_bin;
 
 void main(List<String> arguments) {
   print('------- Task 1 -------');
-  processTask1();
+  //processTask1();
   print('------- Task 2 -------');
-  //processTask2();
+  processTask2();
 }
 
 /// Process Homework Task 1:
@@ -47,5 +48,13 @@ void processTask1() {
 /// Реализуйте методы для преобразования целых чисел из
 /// десятичной системы в двоичную и обратно
 void processTask2() {
+  final int num = console_utils.ConsoleUtils.consoleReadIntOnly(
+      "Input decimal number:");
+  print("dec n = bin ${dec_bin.DecBin.decToBin(num)}");
+
+  final String binStr = console_utils.ConsoleUtils.consoleReadBinStrOnly(
+      "Input binary string:");
+  print("bin n = dec ${dec_bin.DecBin.binToDec(binStr)}");
+
 
 }
