@@ -4,7 +4,7 @@ import 'package:dart_basics/dec_bin.dart' as dec_bin;
 
 void main(List<String> arguments) {
   print('------- Task 1 -------');
-  //processTask1();
+  processTask1();
   print('------- Task 2 -------');
   processTask2();
 }
@@ -55,6 +55,5 @@ void processTask2() {
   final String binStr = console_utils.ConsoleUtils.consoleReadBinStrOnly(
       "Input binary string:");
   print("bin n = dec ${dec_bin.DecBin.binToDec(binStr)}");
-
 
 }
