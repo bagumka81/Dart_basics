@@ -1,12 +1,13 @@
 import 'dart:developer';
 
-import 'package:dart_basics/01_delimeters_calculator.dart' as dc;
-import 'package:dart_basics/06_point.dart';
 import 'package:dart_basics/console_utils.dart' as console_utils;
+import 'package:dart_basics/01_delimeters_calculator.dart' as dc;
 import 'package:dart_basics/02_dec_bin.dart' as dec_bin;
 import 'package:dart_basics/03_extract_numbers.dart' as extr_num;
 import 'package:dart_basics/04_word_list_to_maps.dart' as word_list_map;
 import 'package:dart_basics/05_find_numbers.dart' as find_numbers;
+import 'package:dart_basics/06_point.dart';
+import 'package:dart_basics/07_roots.dart' as roots;
 
 void main(List<String> arguments) {
   print('------- Task 1 -------');
@@ -21,6 +22,8 @@ void main(List<String> arguments) {
   processTask5();
   print('------- Task 6 -------');
   processTask6();
+  print('------- Task 7 -------');
+  processTask7();
 }
 
 /// Process Homework Task 1:
@@ -151,4 +154,21 @@ void processTask6() {
       "${Point.zero().distanceTo(Point(-5, 4, 3))}");
   print("  Area for ${Point.zero()}, ${Point.ones()}, ${Point(-5, 4, 3)} is "
       "${Point.zero().area(Point.ones(), Point(-5, 4, 3))}");
+}
+
+/// Process Homework Task 7:
+/// Реализуйте метод, который вычисляет корень любой заданной степени из числа.
+/// Реализуйте данный метод как extension-метод для num. Алгоритм можете взять
+/// на википедии как «Алгоритм нахождения корня n-й степени».
+/// Запрещается использовать методы math. В случае когда значение вернуть
+/// невозможно, необходимо бросать исключение с описанием ошибки.
+void processTask7() {
+  final double rootArg =
+  console_utils.ConsoleUtils.consoleReadDoubleOnly("Input argument of root:");
+  final int rootPower =
+  console_utils.ConsoleUtils.consoleReadIntOnly("Input power of root:");
+  try {
+    print("Result: ${rootArg.myRoot(rootPower)}" );
+  }catch(e)
+  {print("Exception was raised: ${e.toString()}");}
 }
