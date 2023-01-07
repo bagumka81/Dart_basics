@@ -1,7 +1,8 @@
-import 'package:dart_basics/delimeters_calculator.dart' as dc;
+import 'package:dart_basics/01_delimeters_calculator.dart' as dc;
 import 'package:dart_basics/console_utils.dart' as console_utils;
-import 'package:dart_basics/dec_bin.dart' as dec_bin;
-import 'package:dart_basics/extract_numbers.dart' as extr_num;
+import 'package:dart_basics/02_dec_bin.dart' as dec_bin;
+import 'package:dart_basics/03_extract_numbers.dart' as extr_num;
+import 'package:dart_basics/04_word_list_to_maps.dart' as word_list_map;
 
 void main(List<String> arguments) {
   print('------- Task 1 -------');
@@ -10,6 +11,8 @@ void main(List<String> arguments) {
   processTask2();
   print('------- Task 3 -------');
   processTask3();
+  print('------- Task 4 -------');
+  processTask4();
 }
 
 /// Process Homework Task 1:
@@ -73,4 +76,24 @@ void processTask3() {
   extr_num.ExtractNumbers.getNumbersFromString(strToPare).forEach((element) {
     console_utils.ConsoleUtils.addToPrintLine(" $element");
   });
+  print("\n");
+}
+
+
+/// Process Homework Task 4:
+/// Есть коллекция слов. Реализуйте метод, возвращающий Map.
+/// Данный Map должен соотносить слово и количество его вхождений в
+/// данную коллекцию.
+void processTask4() {
+  const List<String> wordCollection = ["one", "two", "three", "three", "two",
+  "three"];
+  print("Words collection:");
+  wordCollection.forEach((element) {
+    console_utils.ConsoleUtils.addToPrintLine(" '$element'");
+  });
+  console_utils.ConsoleUtils.addToPrintLine("\n");
+  Map<String, int> result = word_list_map.WordListToMap.convert(wordCollection);
+  print("Resulting map:");
+  result.forEach((key, value) {print("\"$key\": $value");});
+  print("\n");
 }

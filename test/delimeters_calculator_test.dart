@@ -1,4 +1,4 @@
-import 'package:dart_basics/delimeters_calculator.dart' as dc;
+import 'package:dart_basics/01_delimeters_calculator.dart' as dc;
 import 'package:test/test.dart';
 
 void main() {
