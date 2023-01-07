@@ -44,11 +44,27 @@ class ConsoleUtils {
       } else {
         line = line.toString();
         for (int i = 0; i < line.length && binString; i++) {
-          if (line[i] != '0' && line[i] != '1') binString=false;
+          if (line[i] != '0' && line[i] != '1') binString = false;
         }
       }
       if (!binString) print("Sorry it's not a binary string.");
     }
     return line.toString();
+  }
+
+  /// Static method for reading non empty Strings only
+  /// [message] is optional message for output
+  static String consoleReadStringOnly([String? message]) {
+    String? consoleString; // = null;
+    while (true) { // exit condition done by break inside
+      if (message != null && message.isNotEmpty) print(message);
+      consoleString = stdin.readLineSync();
+      if (consoleString == null || consoleString.isEmpty) {
+        print("Please input non empty string!");
+      } else {
+        break;
+      }
+    }
+    return consoleString.toString();
   }
 }

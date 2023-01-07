@@ -1,12 +1,15 @@
 import 'package:dart_basics/delimeters_calculator.dart' as dc;
 import 'package:dart_basics/console_utils.dart' as console_utils;
 import 'package:dart_basics/dec_bin.dart' as dec_bin;
+import 'package:dart_basics/extract_numbers.dart' as extr_num;
 
 void main(List<String> arguments) {
   print('------- Task 1 -------');
   processTask1();
   print('------- Task 2 -------');
   processTask2();
+  print('------- Task 3 -------');
+  processTask3();
 }
 
 /// Process Homework Task 1:
@@ -56,4 +59,18 @@ void processTask2() {
       "Input binary string:");
   print("bin n = dec ${dec_bin.DecBin.binToDec(binStr)}");
 
+}
+
+/// Process Homework Task 3:
+/// Реализуйте метод, который принимает строку слов, разделённых пробелами.
+/// Задача — найти в данной строке числа и вернуть коллекцию num этих чисел.
+/// To eliminate ambiguity, let's say that number should be a separate "word",
+///  and we don't search numbers in words
+void processTask3() {
+  final String strToPare = console_utils.ConsoleUtils.consoleReadStringOnly(
+      "Input space divided string to split it in numbers:");
+  print("Numbers in string:");
+  extr_num.ExtractNumbers.getNumbersFromString(strToPare).forEach((element) {
+    console_utils.ConsoleUtils.addToPrintLine(" $element");
+  });
 }
