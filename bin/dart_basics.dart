@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:dart_basics/01_delimeters_calculator.dart' as dc;
+import 'package:dart_basics/06_point.dart';
 import 'package:dart_basics/console_utils.dart' as console_utils;
 import 'package:dart_basics/02_dec_bin.dart' as dec_bin;
 import 'package:dart_basics/03_extract_numbers.dart' as extr_num;
@@ -18,6 +19,8 @@ void main(List<String> arguments) {
   processTask4();
   print('------- Task 5 -------');
   processTask5();
+  print('------- Task 6 -------');
+  processTask6();
 }
 
 /// Process Homework Task 1:
@@ -129,4 +132,23 @@ void processTask5() {
   List<int> result = find_numbers.FindNumbers.find(wordCollection);
   print("Found numbers:");
   print(result);
+}
+
+/// Process Homework Task 6:
+/// Реализуйте класс Point(3D точка), у данного класса реализуйте метод
+/// distanceTo(Point another), расчет расстояния. Реализовать метод,
+/// возвращающий площадь треугольника, по трём точкам.
+/// Реализуйте factory-конструкторы для данного класса, возвращающие [0,0,0] и
+/// [1,1,1], которая определяет единичный вектор.
+void processTask6() {
+  print("Zero point print: ${Point.zero()}");
+  print("Testing methods:");
+  print("  Distance from ${Point.zero()} to ${Point.ones()} is "
+      "${Point.zero().distanceTo(Point.ones())}");
+  print("  Distance from ${Point.ones()} to ${Point(-5, 4, 3)} is "
+      "${Point.ones().distanceTo(Point(-5, 4, 3))}");
+  print("  Distance from ${Point.zero()} to ${Point(-5, 4, 3)} is "
+      "${Point.zero().distanceTo(Point(-5, 4, 3))}");
+  print("  Area for ${Point.zero()}, ${Point.ones()}, ${Point(-5, 4, 3)} is "
+      "${Point.zero().area(Point.ones(), Point(-5, 4, 3))}");
 }
