@@ -8,6 +8,7 @@ import 'package:dart_basics/04_word_list_to_maps.dart' as word_list_map;
 import 'package:dart_basics/05_find_numbers.dart' as find_numbers;
 import 'package:dart_basics/06_point.dart';
 import 'package:dart_basics/07_roots.dart' as roots;
+import 'package:dart_basics/08_user.dart' as user;
 
 void main(List<String> arguments) {
   print('------- Task 1 -------');
@@ -24,6 +25,8 @@ void main(List<String> arguments) {
   processTask6();
   print('------- Task 7 -------');
   processTask7();
+  print('------- Task 8 -------');
+  processTask8();
 }
 
 /// Process Homework Task 1:
@@ -163,12 +166,29 @@ void processTask6() {
 /// Запрещается использовать методы math. В случае когда значение вернуть
 /// невозможно, необходимо бросать исключение с описанием ошибки.
 void processTask7() {
-  final double rootArg =
-  console_utils.ConsoleUtils.consoleReadDoubleOnly("Input argument of root:");
+  final double rootArg = console_utils.ConsoleUtils.consoleReadDoubleOnly(
+      "Input argument of root:");
   final int rootPower =
-  console_utils.ConsoleUtils.consoleReadIntOnly("Input power of root:");
+      console_utils.ConsoleUtils.consoleReadIntOnly("Input power of root:");
   try {
-    print("Result: ${rootArg.myRoot(rootPower)}" );
-  }catch(e)
-  {print("Exception was raised: ${e.toString()}");}
+    print("Result: ${rootArg.myRoot(rootPower)}");
+  } catch (e) {
+    print("Exception was raised: ${e.toString()}");
+  }
+}
+
+/// Process Homework Task 8:
+/// Создайте класс User с полем email. Реализуйте два наследника
+/// данного класса AdminUser и GeneralUser. Реализовать mixin над User,
+/// с методом getMailSystem, возвращающий часть email после @ (mail.ru).
+/// Используйте данный миксин на AdminUser. Далее реализуйте класс
+/// UserManager<T extends User> со списком User и методами добавить/удалить.
+/// В UserManager сделать метод печати всех email, кроме Админа, для которого
+/// печатать getMailSystem. Проверьте реализованные методы на практике.
+void processTask8() {
+  user.UserManager userManager = user.UserManager();
+  userManager.addUser(user.GeneralUser("user1@mail.ru"));
+  userManager.addUser(user.AdminUser("admUser@mail.ru"));
+  userManager.addUser(user.GeneralUser("user2@ya.ru"));
+  print("User list:\n$userManager");
 }
