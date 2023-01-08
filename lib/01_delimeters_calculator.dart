@@ -31,7 +31,7 @@ class DelimetersCalculator {
     if (n < 2) {
       throw ArgumentError("Argument must be more than 1");
     }
-    for (int nextPrime in getNextPrime(n)) {
+    for (int nextPrime in _getNextPrime(n)) {
       while (n % nextPrime == 0) {
         yield nextPrime;
         n = n ~/ nextPrime;
@@ -41,7 +41,7 @@ class DelimetersCalculator {
   }
 
   /// Static method for generating prime numbers from 2 to [n]
-  static Iterable<int> getNextPrime(int n) sync* {
+  static Iterable<int> _getNextPrime(int n) sync* {
     int k = 2;
     bool isPrime = true;
     for (; k <= n; k++, isPrime = true) {

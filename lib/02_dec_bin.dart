@@ -10,19 +10,19 @@ class DecBin {
       throw ArgumentError("Works for positive numbers only!");
     }
     if (n == 0) return "0";
-    int curr_part = 1;
+    int currPart = 1;
     int power = 0;
     // find eldest "one"
-    for (; power < 64 && curr_part < n; power++, curr_part <<= 1) {}
-    if (power < 64) curr_part >>= 1;
-    while (curr_part > 0) {
-      if (curr_part <= n) {
+    for (; power < 64 && currPart < n; power++, currPart <<= 1) {}
+    if (power < 64) currPart >>= 1;
+    while (currPart > 0) {
+      if (currPart <= n) {
         value += '1';
-        n -= curr_part;
+        n -= currPart;
       } else {
         value += '0';
       }
-      curr_part >>= 1;
+      currPart >>= 1;
     }
     return value; // n.toRadixString(2);
   }
@@ -39,13 +39,5 @@ class DecBin {
       power <<= 1;
     }
     return value; //int.parse(n, radix: 2);
-  }
-
-  /// Static method for generating prime numbers from 2 to [n]
-  static Iterable<int> getNextPrime(int n) sync* {
-    int k = 2;
-    while (k <= n) {
-      yield k++;
-    }
   }
 }

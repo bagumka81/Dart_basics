@@ -85,7 +85,7 @@ void processTask3() {
   final String strToPare = console_utils.ConsoleUtils.consoleReadStringOnly(
       "Input space divided string to split it in numbers:");
   print("Numbers in string:");
-  extr_num.ExtractNumbers.getNumbersFromString(strToPare).forEach((element) {
+  extr_num.ExtractNumbers.getNumbersList(strToPare).forEach((element) {
     console_utils.ConsoleUtils.addToPrintLine(" $element");
   });
   print("\n");
