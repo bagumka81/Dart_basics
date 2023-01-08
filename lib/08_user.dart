@@ -8,7 +8,7 @@ class User {
 
   @override
   String toString() {
-  return "$runtimeType: $email";
+    return "$runtimeType: $email";
   }
 }
 
@@ -37,25 +37,26 @@ mixin MailSystem on User {
 /// UserManager class
 class UserManager<T extends User> {
   List<T> users = [];
+
   /// Add [newUser] to [users]
-  addUser(T newUser) {
-    for (T element in users) {
-      if (element.email == newUser.email) {
-        throw ArgumentError("User with that email is already registered");
-      }
+  void addUser(T newUser) {
+    if (users.any((user) => user.email == newUser.email)) {
+      throw ArgumentError("User with that email is already registered");
     }
     users.add(newUser);
   }
 
   /// Remove user with [email] from [users]
-  removeUser(String email) {
-    for (T element in users) {
-      if (element.email == email) {
-        users.remove(element);
-        return;
-      }
-    }
-    throw ArgumentError("User with that email doesn't exist!");
+  void removeUser(String email) {
+    users.removeWhere((user) => user.email == email);
+  }
+
+  void printEmails() {
+    print("Users emails:");
+    users.forEach((user) {
+      print(user.runtimeType == AdminUser ? (user as AdminUser).getMailSystem()
+          : user.email);
+    });
   }
 
   @override

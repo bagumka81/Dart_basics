@@ -190,5 +190,5 @@ void processTask8() {
   userManager.addUser(user.GeneralUser("user1@mail.ru"));
   userManager.addUser(user.AdminUser("admUser@mail.ru"));
   userManager.addUser(user.GeneralUser("user2@ya.ru"));
-  print("User list:\n$userManager");
+  userManager.printEmails();
 }
