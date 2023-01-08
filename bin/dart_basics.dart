@@ -9,6 +9,8 @@ import 'package:dart_basics/05_find_numbers.dart' as find_numbers;
 import 'package:dart_basics/06_point.dart';
 import 'package:dart_basics/07_roots.dart' as roots;
 import 'package:dart_basics/08_user.dart' as user;
+import 'package:dart_basics/09_integral.dart' as integral;
+import 'package:test/scaffolding.dart';
 
 void main(List<String> arguments) {
   print('------- Task 1 -------');
@@ -27,6 +29,8 @@ void main(List<String> arguments) {
   processTask7();
   print('------- Task 8 -------');
   processTask8();
+  print('------- Task 9 -------');
+  processTask9();
 }
 
 /// Process Homework Task 1:
@@ -191,4 +195,28 @@ void processTask8() {
   userManager.addUser(user.AdminUser("admUser@mail.ru"));
   userManager.addUser(user.GeneralUser("user2@ya.ru"));
   userManager.printEmails();
+}
+
+// функция с особенностями
+double linExclusion(double x) {
+  if (x>5){
+    throw RangeError("Values x>5 are out of scope!");
+  }
+  return x * 2 + 4;
+}
+
+/// Process Homework Task 9:
+/// Реализуйте метод, вычисления определённого интеграла Римана в заданных
+/// значениях и с заданной точностью разбиения. Учесть случаи, когда функция
+/// имеет точки разрыва. Реализованный метод должен принимать:
+/// функцию, точки x1 и x2, точность разбиения.
+void processTask9() {
+  //double val = integral.Integral.calc(linx, 3.5, 6.7, 10);
+  late double val;
+  val= integral.Integral.calc(((x) => x * 2 + 4), 3.5, 6.7, 10);
+  print ("result for linear function: $val"); // 45.44=(6.7-3.5)*(11+17.4)/2
+  val= integral.Integral.calc(linExclusion, 3.5, 6.7, 100000);
+  //18.75=(5-3.5)*(11+14)/2,but only 100 000 steps give good accuracy
+  print ("result for linear function with issues: $val");
+
 }
