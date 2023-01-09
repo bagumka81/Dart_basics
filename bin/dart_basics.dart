@@ -10,10 +10,10 @@ import 'package:dart_basics/06_point.dart';
 import 'package:dart_basics/07_roots.dart' as roots;
 import 'package:dart_basics/08_user.dart' as user;
 import 'package:dart_basics/09_integral.dart' as integral;
-import 'package:test/scaffolding.dart';
+import 'package:dart_basics/10_slau.dart' as slau;
 
 void main(List<String> arguments) {
-  print('------- Task 1 -------');
+/*  print('------- Task 1 -------');
   processTask1();
   print('------- Task 2 -------');
   processTask2();
@@ -31,6 +31,8 @@ void main(List<String> arguments) {
   processTask8();
   print('------- Task 9 -------');
   processTask9();
+  print('------- Task 10 -------');*/
+  processTask10();
 }
 
 /// Process Homework Task 1:
@@ -219,4 +221,16 @@ void processTask9() {
   //18.75=(5-3.5)*(11+14)/2,but only 100 000 steps give good accuracy
   print ("result for linear function with issues: $val");
 
+}
+
+/// Process Homework Task 10:
+/// Реализуйте метод, который принимает коэффициенты системы линейных уравнений
+/// (для любого числа неизвестных). Данный метод создаёт матрицу коэффициентов,
+/// приводит её к треугольному виду и находит все неизвестные данной системы.
+/// U * ⃗x = ⃗b
+void processTask10() {
+  List<double> Ub = [0.0, 1.0, 2.0, 3.0, 4.0, 5.0];
+  // 0.0 * x1 + 1.0 * x2 = 2.0
+  // 3.0 * x1 + 4.0 * x2 = 5.0
+  slau.Slau.solve(Ub);
 }
