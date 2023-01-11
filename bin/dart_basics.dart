@@ -13,7 +13,7 @@ import 'package:dart_basics/09_integral.dart' as integral;
 import 'package:dart_basics/10_slau.dart' as slau;
 
 void main(List<String> arguments) {
-/*  print('------- Task 1 -------');
+  print('------- Task 1 -------');
   processTask1();
   print('------- Task 2 -------');
   processTask2();
@@ -31,7 +31,7 @@ void main(List<String> arguments) {
   processTask8();
   print('------- Task 9 -------');
   processTask9();
-  print('------- Task 10 -------');*/
+  print('------- Task 10 -------');
   processTask10();
 }
 
@@ -229,8 +229,22 @@ void processTask9() {
 /// приводит её к треугольному виду и находит все неизвестные данной системы.
 /// U * ⃗x = ⃗b
 void processTask10() {
+  // 1. usual matrix len =2, solution = [-1.0, 2.0]
   List<double> Ub = [0.0, 1.0, 2.0, 3.0, 4.0, 5.0];
-  // 0.0 * x1 + 1.0 * x2 = 2.0
-  // 3.0 * x1 + 4.0 * x2 = 5.0
-  slau.Slau.solve(Ub);
+  // 0.0 * x0 + 1.0 * x1 = 2.0
+  // 3.0 * x0 + 4.0 * x1 = 5.0
+
+  // 2. usual matrix len =3, solution = [0, -1.0, 2.0]
+  //List<double> Ub = [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, -8.0, 9.0, 10.0, 11];
+
+  // 3. Singular matrix
+  //List<double> Ub = [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11];
+  // calculate vector ⃗x
+  try{
+    final x = slau.Slau.solve(Ub);
+    print("Result: $x");
+  }catch(e){
+    print(e.toString());
+  }
+
 }

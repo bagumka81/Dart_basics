@@ -22,12 +22,12 @@ extension Root on num {
     for (int i = 2; i < n; i++, am *= xLast) {}
     // calculate current result
     res = ((n.toDouble() - 1.0) * xLast + arg / am) / n.toDouble();
-    if (_abs(res - xLast) > eps) { // check precision
+    if (abs(res - xLast) > eps) { // check precision
       return _sqrtn(arg, n, res, eps); // need more accurate result
     }
     return res; // reached precision
   }
 
   /// Calculate absolute value of [x]
-  static double _abs(double x) => (x < 0) ? (-x) : x;
+  static double abs(double x) => (x < 0) ? (-x) : x;
 }
