@@ -74,11 +74,13 @@ void processTask1() {
 /// десятичной системы в двоичную и обратно
 void processTask2() {
   final int num =
-      console_utils.ConsoleUtils.consoleReadIntOnly("Input decimal number:");
+      console_utils.ConsoleUtils.consoleReadIntOnly(
+          "Input decimal number for binary convert:");
   print("dec n = bin ${dec_bin.DecBin.decToBin(num)}");
 
   final String binStr =
-      console_utils.ConsoleUtils.consoleReadBinStrOnly("Input binary string:");
+      console_utils.ConsoleUtils.consoleReadBinStrOnly(
+          "Input binary string for decimal convert:");
   print("bin n = dec ${dec_bin.DecBin.binToDec(binStr)}");
 }
 

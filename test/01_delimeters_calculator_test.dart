@@ -1,5 +1,5 @@
-import 'package:dart_basics/01_delimeters_calculator.dart' as dc;
 import 'package:test/test.dart';
+import 'package:dart_basics/01_delimeters_calculator.dart' as dc;
 
 void main() {
   group('Success test', () {
