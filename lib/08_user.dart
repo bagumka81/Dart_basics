@@ -51,6 +51,9 @@ class UserManager<T extends User> {
     users.removeWhere((user) => user.email == email);
   }
 
+  /// Method is used in tests to clear userManager
+  void clearUsers() => users.clear();
+
   void printEmails() {
     print("Users emails:");
     users.forEach((user) {
