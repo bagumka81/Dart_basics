@@ -10,6 +10,10 @@ extension Root on num {
       throw ArgumentError("Non odd root from negative number "
           "can't be calculated!");
     }
+    if (rootPower<0){
+      throw ArgumentError("Root power should be zero or positive!");
+    }
+    if (rootPower<2) return (rootPower==0) ? 1 : this;
     return _sqrtn(toDouble(), rootPower, toDouble(), eps);
   }
 
@@ -29,5 +33,5 @@ extension Root on num {
   }
 
   /// Calculate absolute value of [x]
-  static double abs(double x) => (x < 0) ? (-x) : x;
+  static num abs(num x) => (x < 0) ? (-x) : x;
 }

@@ -13,8 +13,7 @@ import 'package:dart_basics/09_integral.dart' as integral;
 import 'package:dart_basics/10_slau.dart' as slau;
 
 void main(List<String> arguments) {
-  processTask6();
-/*  print('------- Task 1 -------');
+  print('------- Task 1 -------');
   processTask1();
   print('------- Task 2 -------');
   processTask2();
@@ -33,7 +32,7 @@ void main(List<String> arguments) {
   print('------- Task 9 -------');
   processTask9();
   print('------- Task 10 -------');
-  processTask10();*/
+  processTask10();
 }
 
 /// Process Homework Task 1:
