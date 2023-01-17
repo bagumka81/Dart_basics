@@ -215,7 +215,6 @@ double linExclusion(double x) {
 /// имеет точки разрыва. Реализованный метод должен принимать:
 /// функцию, точки x1 и x2, точность разбиения.
 void processTask9() {
-  //double val = integral.Integral.calc(linx, 3.5, 6.7, 10);
   late double val;
   val= integral.Integral.calc(((x) => x * 2 + 4), 3.5, 6.7, 10);
   print ("result for linear function: $val"); // 45.44=(6.7-3.5)*(11+17.4)/2
