@@ -1,5 +1,5 @@
 #Dart_basics
-Тестовое задание по основам dart.
+Тестовое задание по основам dart. Skillbox "Flutter" course, module 2.
 
 App code folder `bin/`
 Libraries code folder`lib/`
